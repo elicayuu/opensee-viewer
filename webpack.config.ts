@@ -63,6 +63,9 @@ const webpackConfig = (env): Configuration => ({
       'process.env.VERSION': JSON.stringify(require('./package.json').version),
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
 })
 
 export default webpackConfig
