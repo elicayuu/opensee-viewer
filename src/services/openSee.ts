@@ -9,7 +9,11 @@ interface openSeeAsset {
   collection: {
     name: string
   }
-  permalink
+  permalink: string
+  token_id: number
+  asset_contract: {
+    address: string
+  }
 }
 
 interface openSeeAssets {
@@ -24,4 +28,11 @@ export async function getList(): Promise<AxiosResponse<openSeeAssets>> {
       limit: 20,
     },
   })
+}
+
+export async function getDetail(
+  address: string,
+  tokenId: number,
+): Promise<AxiosResponse<openSeeAsset>> {
+  return axios.get(`https://api.opensea.io/api/v1/asset/${address}/${tokenId}`)
 }

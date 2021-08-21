@@ -23,7 +23,14 @@ const List: React.FC<RouteComponentProps> = () => {
       <Header>List</Header>
       <Content>
         {data.map((item, i) => {
-          return <Card to="" imgUrl={item.image_url} name={item.name} key={i} />
+          return (
+            <Card
+              to={`/assets/${item.asset_contract.address}/${item.token_id}`}
+              imgUrl={item.image_url}
+              name={item.name}
+              key={i}
+            />
+          )
         })}
       </Content>
     </>
