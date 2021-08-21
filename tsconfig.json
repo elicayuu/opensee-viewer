@@ -22,7 +22,8 @@
     "typeRoots": ["./src/@types", "./node_modules/@types"],
     "paths": {
       "@components/*": ["src/components/*"],
-      "@images/*": ["src/images/*"]
+      "@images/*": ["src/images/*"],
+      "@pages/*":["src/pages/*"]
     }
   },
   "include": [

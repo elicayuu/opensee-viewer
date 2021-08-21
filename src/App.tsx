@@ -1,12 +1,11 @@
 import React from 'react'
-import HelloWorld from '@components/HelloWorld'
+import { Router } from '@reach/router'
+import List from '@pages/list'
 
 const App: React.FC = () => (
-  <HelloWorld
-    productction={process.env.PRODUCTION.toString()}
-    name={process.env.NAME}
-    version={process.env.VERSION}
-  />
+  <Router>
+    <List path="/" />
+  </Router>
 )
 
 export default App
