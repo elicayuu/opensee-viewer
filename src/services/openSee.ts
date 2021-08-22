@@ -20,12 +20,19 @@ interface openSeeAssets {
   assets: openSeeAsset[]
 }
 
-export async function getList(): Promise<AxiosResponse<openSeeAssets>> {
+interface GetListParams {
+  offset: number
+}
+
+export async function getList({
+  offset = 0,
+}: GetListParams): Promise<AxiosResponse<openSeeAssets>> {
   return axios.get('https://api.opensea.io/api/v1/assets', {
     params: {
       format: 'json',
       owner: account,
       limit: 20,
+      offset,
     },
   })
 }
