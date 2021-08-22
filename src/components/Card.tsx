@@ -10,21 +10,27 @@ interface Card {
 
 export const Card: React.FC<Card> = ({ to, imgUrl, name }) => {
   return (
-    <Content>
-      <Link to={to}>
-        <Image>
-          <img src={imgUrl} />
-        </Image>
-        <Text>{name}</Text>
-      </Link>
-    </Content>
+    <LinkCard to={to}>
+      <Image>
+        <img src={imgUrl} />
+      </Image>
+      <Text>{name}</Text>
+    </LinkCard>
   )
 }
 
-const Content = styled.div`
+const LinkCard = styled(Link)<{ to: string }>`
+  display: block;
   width: 100%;
   border: 1px solid #eee;
+
+  &:link,
+  &:visited {
+    color: #000;
+    text-decoration: none;
+  }
 `
+
 const Image = styled.div`
   width: 100%;
 
